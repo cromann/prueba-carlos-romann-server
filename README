@@ -1,0 +1,33 @@
+Web service rest para ingresar nombre de usuario y un archivo con una imagen.
+
+Requisitos
+----------------------
+- JDK 1.8
+
+
+Ejecución
+----------------------
+Se puede levantar la aplicación desde consola con el siguiente comando:
+
+./gradlew bootRun
+
+esto ejecutará el plugin de Spring Boot para Gradle, que levantará un servidor Tomcat con la aplicación.
+Luego de que Tomcat se inicie el web service estará listo para recibir las peticiones.
+
+
+Configuración
+----------------------
+En el directorio src/main/resources está disponible un archivo application.properties con las siguientes 
+propiedades configurables:
+
+service.url = URL base donde el web service recibe peticiones. Por defecto tiene configurado el valor /users
+
+server.port = Puerto en el que escuchará el tomcat de la aplicación servidor. Por defecto tiene el valor
+8080. El valor configurado debe ser distinto al configurado en la aplicación cliente.
+
+image.maxSize = Tamaño máximo en bytes que aceptará el web service para cada imagen. Si la imagen excede
+este tamaño, el web service retornará un código 400: Bad Request. El tamaño configurado por defecto es de
+1048576 bytes (1 MB).
+
+user.authorized = El nombre de usuario autorizado para subir datos. Cualquier otro nombre de usuario 
+hará que el web service retorne el código 401: Unauthorized. El valor por defecto es usuario1.

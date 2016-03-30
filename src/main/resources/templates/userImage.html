@@ -1,0 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:if="${username}">
+		<h2 th:text="${username}"/>
+		<img th:src="@{${imageUri}}" />
+	</div>	
+
+</body>
+</html>
